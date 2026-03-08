@@ -3,6 +3,7 @@ import '../../../core/app_theme.dart';
 import '../../../models/models.dart';
 import '../../../widgets/listing_card.dart';
 import '../../../widgets/responsive_layout.dart';
+import '../../../widgets/location_map.dart';
 import '../../../core/mock_data.dart';
 import 'home_screen.dart';
 
@@ -63,10 +64,15 @@ class ListingDetailMobile extends StatelessWidget {
                     children: [
                       const Icon(Icons.location_on_outlined, color: Colors.grey, size: 20),
                       const SizedBox(width: 4),
-                      Text(listing.location, style: const TextStyle(color: Colors.grey)),
+                      Text('${listing.location} (${listing.distance}km away)', style: const TextStyle(color: Colors.grey)),
                     ],
                   ),
                   const Divider(height: 32),
+                  const Text('Location', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                  const SizedBox(height: 16),
+                  if (listing.coordinates != null)
+                    LocationMap(center: listing.coordinates!, title: listing.supplierName, height: 200),
+                  const SizedBox(height: 24),
                   const Text('Description', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 8),
                   Text(listing.description, style: const TextStyle(color: Colors.black87, height: 1.5)),
@@ -177,6 +183,11 @@ class ListingDetailWeb extends StatelessWidget {
                             ),
                           )).toList(),
                         ),
+                        const SizedBox(height: 32),
+                        const Text('Location on Map', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                        const SizedBox(height: 16),
+                        if (listing.coordinates != null)
+                          LocationMap(center: listing.coordinates!, title: listing.supplierName, height: 350),
                       ],
                     ),
                   ),
@@ -190,6 +201,8 @@ class ListingDetailWeb extends StatelessWidget {
                         const SizedBox(height: 16),
                         Text('₦${listing.price.toStringAsFixed(0)}', style: const TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: AppTheme.primaryBlue)),
                         Text('per ${listing.unit}', style: const TextStyle(color: Colors.grey)),
+                        const SizedBox(height: 8),
+                        Text('${listing.location} (${listing.distance}km away)', style: const TextStyle(color: Colors.grey)),
                         const SizedBox(height: 24),
                         const Divider(),
                         const SizedBox(height: 24),

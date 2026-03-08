@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:latlong2/latlong.dart';
 
 enum ListingCategory {
   rawMaterials,
@@ -34,6 +35,7 @@ class Supplier extends Equatable {
   final String? coverPhoto;
   final String? avatar;
   final String location;
+  final LatLng? coordinates;
   final double rating;
   final int listingsCount;
   final int viewsCount;
@@ -50,6 +52,7 @@ class Supplier extends Equatable {
     this.coverPhoto,
     this.avatar,
     required this.location,
+    this.coordinates,
     this.rating = 0.0,
     this.listingsCount = 0,
     this.viewsCount = 0,
@@ -59,7 +62,7 @@ class Supplier extends Equatable {
   });
 
   @override
-  List<Object?> get props => [id, name, isVerified, location, status];
+  List<Object?> get props => [id, name, isVerified, location, status, coordinates];
 }
 
 class Listing extends Equatable {
@@ -74,6 +77,7 @@ class Listing extends Equatable {
   final bool isSupplierVerified;
   final List<String> images;
   final String location;
+  final LatLng? coordinates;
   final double distance; // in km
   final String status; // Active, Paused, Expired
   final DateTime createdAt;
@@ -92,6 +96,7 @@ class Listing extends Equatable {
     this.isSupplierVerified = false,
     required this.images,
     required this.location,
+    this.coordinates,
     required this.distance,
     this.status = 'Active',
     required this.createdAt,
@@ -100,5 +105,5 @@ class Listing extends Equatable {
   });
 
   @override
-  List<Object?> get props => [id, title, price, supplierId, status];
+  List<Object?> get props => [id, title, price, supplierId, status, coordinates];
 }

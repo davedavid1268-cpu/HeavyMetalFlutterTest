@@ -1,3 +1,4 @@
+import 'package:latlong2/latlong.dart';
 import '../models/models.dart';
 
 class MockData {
@@ -42,6 +43,7 @@ class MockData {
       email: 'contact@lekkisand.com',
       isVerified: true,
       location: 'Lekki Phase 1, Lagos',
+      coordinates: const LatLng(6.4589, 3.6015),
       rating: 4.8,
       listingsCount: 15,
       viewsCount: 1200,
@@ -57,6 +59,7 @@ class MockData {
       email: 'info@ikejahaulage.com',
       isVerified: false,
       location: 'Ikeja, Lagos',
+      coordinates: const LatLng(6.6018, 3.3515),
       rating: 4.2,
       listingsCount: 8,
       viewsCount: 850,
@@ -72,6 +75,7 @@ class MockData {
       email: 'hello@swiftmovers.ng',
       isVerified: true,
       location: 'Surulere, Lagos',
+      coordinates: const LatLng(6.4952, 3.3541),
       rating: 4.9,
       listingsCount: 5,
       viewsCount: 2100,
@@ -94,11 +98,12 @@ class MockData {
       supplierName: 'Lekki Sand & Gravel Ltd',
       isSupplierVerified: true,
       location: 'Lekki, Lagos',
+      coordinates: const LatLng(6.4589, 3.6015),
       distance: 2.5,
       createdAt: DateTime.now().subtract(const Duration(days: 2)),
       views: 150,
       contacts: 45,
-      images: [
+      images: const [
         'https://images.unsplash.com/photo-1533044309907-0fa3413da946?w=500',
       ],
     ),
@@ -113,11 +118,12 @@ class MockData {
       supplierName: 'Ikeja Haulage Solutions',
       isSupplierVerified: false,
       location: 'Ikeja, Lagos',
+      coordinates: const LatLng(6.6018, 3.3515),
       distance: 12.0,
       createdAt: DateTime.now().subtract(const Duration(days: 1)),
       views: 85,
       contacts: 12,
-      images: [
+      images: const [
         'https://images.unsplash.com/photo-1586191582151-f73972d10727?w=500',
       ],
     ),
@@ -132,11 +138,12 @@ class MockData {
       supplierName: 'Swift Movers Surulere',
       isSupplierVerified: true,
       location: 'Surulere, Lagos',
+      coordinates: const LatLng(6.4952, 3.3541),
       distance: 8.5,
       createdAt: DateTime.now().subtract(const Duration(hours: 5)),
       views: 320,
       contacts: 110,
-      images: [
+      images: const [
         'https://images.unsplash.com/photo-1600585152220-90363fe7e115?w=500',
       ],
     ),
@@ -151,11 +158,12 @@ class MockData {
       supplierName: 'Lekki Sand & Gravel Ltd',
       isSupplierVerified: true,
       location: 'Ajah, Lagos',
+      coordinates: const LatLng(6.4523, 3.6121),
       distance: 5.0,
       createdAt: DateTime.now().subtract(const Duration(days: 3)),
       views: 98,
       contacts: 20,
-      images: [
+      images: const [
         'https://images.unsplash.com/photo-1517581177682-a085bb7ffb15?w=500',
       ],
     ),
